@@ -42,11 +42,13 @@ class TestLineBreaker(unittest.TestCase):
         actual = LineBreaker.justify(target, 40)
         assert_that(actual).is_equal_to(expected)
 
-    @unittest.skip('')
-    def test_justify_lines_text_with_length_120(self):
-        target = 'Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar'
+    def test_justify_lines_text_with_length_100(self):
+        target = 'Mussum Ipsum, cacilds vidis litros abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar'
         actual = LineBreaker.justify_lines(LineBreaker.to_lines(target, 40))
-        assert_that(actual).has_length(3)
+        assert_that(actual).is_length(3)
 
         for line in actual:
-            assert_that(line).has_length(40)
+            assert_that(line).is_length(40)
+
+
+    

@@ -24,8 +24,12 @@ class LineBreaker:
                 if len(text) == max_length:
                     return text
 
-
-
     @staticmethod
     def justify_lines(lines, max_length=40):
-        pass
+        justified_lines = []
+
+        for line in lines:
+            justified_lines.append(LineBreaker.justify(line))
+        return justified_lines
+
+
