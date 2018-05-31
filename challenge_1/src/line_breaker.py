@@ -8,8 +8,23 @@ class LineBreaker:
 
     @staticmethod
     def justify(text, max_length=40):
-        if len(text) >  max_length or not text:
+        if len(text) > max_length or not text:
             raise ValueError
+
+        if len(text) == max_length:
+            return text
+
+        words = text.split()
+        
+        while len(text) < max_length:
+            for i in range(len(words) - 1):
+                words[i] = words[i] + ' '
+                text = ' '.join(words)
+
+                if len(text) == max_length:
+                    return text
+
+
 
     @staticmethod
     def justify_lines(lines, max_length=40):

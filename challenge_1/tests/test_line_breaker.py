@@ -23,20 +23,24 @@ class TestLineBreaker(unittest.TestCase):
         actual = LineBreaker.to_lines(target, 40)
         assert_that(actual).is_equal_to(expected)
 
+
     def test_justify_larger_then_max_length(self):
         target = 'Tenna norna ela ar, mitya atacar sá úvë, loc téra caila larca ve'
         assert_that(LineBreaker.justify).raises(ValueError).when_called_with(target)
 
+    def test_justify_length_equals_to_max_length(self):
+        target = 'Tenna norna ela ar, mitya atacar sá úvë'
+        actual = LineBreaker.justify(target, 39)
+        assert_that(actual).is_equal_to(target)
+
     def test_justify_empty_string(self):
         assert_that(LineBreaker.justify).raises(ValueError).when_called_with('')
 
-    @unittest.skip('')
     def test_justify_shorter_then_max_length(self):
         target = 'Fëa ninwa hravan up'
         expected = 'Fëa        ninwa        hravan        up'
         actual = LineBreaker.justify(target, 40)
         assert_that(actual).is_equal_to(expected)
-
 
     @unittest.skip('')
     def test_justify_lines_text_with_length_120(self):
