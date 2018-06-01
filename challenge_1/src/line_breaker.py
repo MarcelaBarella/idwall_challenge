@@ -31,5 +31,3 @@ class LineBreaker:
         for line in lines:
             justified_lines.append(LineBreaker.justify(line))
         return justified_lines
-
-

@@ -1,5 +1,7 @@
 import argparse
 
+from src.line_breaker import LineBreaker
+
 parser = argparse.ArgumentParser(description='Simple text processor')
 
 parser.add_argument('--input', type=argparse.FileType('r'),
@@ -25,7 +27,7 @@ output_lines = LineBreaker.to_lines(input_text)
 
 if(arguments.action == 'justify'):
     output_lines = LineBreaker.justify_lines(output_lines)
-    
+
 output_text = '\n'.join(output_lines)
 
 arguments.output.write(output_text)
