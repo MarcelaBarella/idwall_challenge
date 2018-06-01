@@ -14,9 +14,9 @@ class TestLineBreaker(unittest.TestCase):
         assert_that(LineBreaker.to_lines('a')).is_equal_to(['a'])
 
     def test_split_text_into_lines_with_large_string(self):
-        target = 'Mussum Ipsum, cacilds vidis litro abert. Praesent vel'
+        target = 'Loa remba lindë enyárë ya, mear úcarë. Praesent vel'
         expected = [
-            'Mussum Ipsum, cacilds vidis litro abert.',
+            'Loa remba lindë enyárë ya, mear úcarë.',
             'Praesent vel'
         ]
         actual = LineBreaker.to_lines(target, 40)
@@ -42,7 +42,7 @@ class TestLineBreaker(unittest.TestCase):
         assert_that(actual).is_equal_to(expected)
 
     def test_justify_lines_text_with_length_100(self):
-        target = 'Mussum Ipsum, cacilds vidis litros abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar'
+        target = 'Cir cotumo métima us, oa apa anna onótima, né sac fion ronyo eteminya. Lanat rangwë leryalehtya har '
         actual = LineBreaker.justify_lines(LineBreaker.to_lines(target, 40))
         assert_that(actual).is_length(3)
 
