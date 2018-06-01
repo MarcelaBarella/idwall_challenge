@@ -29,5 +29,5 @@ class LineBreaker:
         justified_lines = []
 
         for line in lines:
-            justified_lines.append(LineBreaker.justify(line))
+            justified_lines.append(LineBreaker.justify(line, max_length))
         return justified_lines

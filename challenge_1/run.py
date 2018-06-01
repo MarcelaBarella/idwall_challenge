@@ -10,6 +10,8 @@ parser.add_argument('--input', type=argparse.FileType('r'),
 
 parser.add_argument('--action', choices=['break-lines', 'justify'], required=True)
 parser.add_argument('--output', type=argparse.FileType('w'))
+parser.add_argument('--length', type=int, default=40)
+
 
 arguments = parser.parse_args()
 
@@ -23,10 +25,10 @@ if not arguments.output:
 input_text = arguments.input.read().replace('\r\n', ' ').replace('\n', ' ')
 arguments.input.close()
 
-output_lines = LineBreaker.to_lines(input_text)
+output_lines = LineBreaker.to_lines(input_text, arguments.length)
 
 if(arguments.action == 'justify'):
-    output_lines = LineBreaker.justify_lines(output_lines)
+    output_lines = LineBreaker.justify_lines(output_lines, arguments.length)
 
 output_text = '\n'.join(output_lines)
 
