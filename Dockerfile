@@ -16,6 +16,8 @@ RUN apk update && apk add \
     libffi-dev \
     openssl-dev
 
+RUN pip install --upgrade pip setuptools wheel
+
 # Environment vars
 ENV APP_HOME /app
  

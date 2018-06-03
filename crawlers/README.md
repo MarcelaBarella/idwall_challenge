@@ -1,30 +1,52 @@
-# Desafio 2: Crawlers
+# Crawler Challenge
+Simple crawler to get thrending threads of Reddit.
 
-Parte do trabalho na IDwall inclui desenvolver *crawlers/scrapers* para coletar dados de websites.
-Como nós nos divertimos trabalhando, às vezes trabalhamos para nos divertir!
+## Techonologies 
 
-O Reddit é quase como um fórum com milhares de categorias diferentes. Com a sua conta, você pode navegar por assuntos técnicos, ver fotos de gatinhos, discutir questões de filosofia, aprender alguns life hacks e ficar por dentro das notícias do mundo todo!
+This solution is written in Python 3.6.5 using the following technologies:
+- [scrapy](https://scrapy.org/) - Framework to extract data from websites.
+- [argparse](https://docs.python.org/3/library/argparse.html?highlight=argparse) - Built-in library that makes receive arguments easier.
+- [halo](https://github.com/ManrajGrover/halo) - Beautiful spinners for terminal.
 
-Subreddits são como fóruns dentro do Reddit e as postagens são chamadas *threads*.
+## Running Solution
+The two ways that you can run this solution is locally or using docker, for both cases follow the given steps:
 
-Para quem gosta de gatos, há o subreddit ["/r/cats"](https://www.reddit.com/r/cats) com threads contendo fotos de gatos fofinhos.
-Para *threads* sobre o Brasil, vale a pena visitar ["/r/brazil"](https://www.reddit.com/r/brazil) ou ainda ["/r/worldnews"](https://www.reddit.com/r/worldnews/).
-Um dos maiores subreddits é o "/r/AskReddit".
+### Locally
+In order to run this solution script you must have Python 3.6, PIP and this project dependencies installed. To install Python and PIP, please refeer to their official documentation.
 
-Cada *thread* possui uma pontuação que, simplificando, aumenta com "up votes" (tipo um like) e é reduzida com "down votes".
+To install all dependencies, simple run:
+> $ pip install -r requirements.txt
 
-Sua missão é encontrar e listar as *threads* que estão bombando no Reddit naquele momento!
-Consideramos como bombando *threads* com 5000 pontos ou mais.
+### With Docker
+Also this solution was built using docker. You will only need docker installed (please refeer to [official docker docs](https://docs.docker.com/install/)). If you want to use docker in order to prevent install anything in your machine, you can use the Dockerfile and docker-compose.yml of this project.
 
-## Entrada
-- Lista com nomes de subreddits separados por ponto-e-vírgula (`;`). Ex: "askreddit;worldnews;cats"
+This solution image contains only the minimal necessary to solve this challenge. Because of that I choose to use Python3.6 image with Linux Alpine 3.7.
 
-### Parte 1
-Gerar e imprimir uma lista contendo número de upvotes, subreddit, título da thread, link para os comentários da thread, link da thread.
-Essa parte pode ser um CLI simples, desde que a formatação da impressão fique legível.
+To need this image, go to root of this project:
+> $ cd ../
 
-### Parte 2
-Construir um robô que nos envie essa lista via Telegram sempre que receber o comando `/NadaPraFazer [+ Lista de subrredits]` (ex.: `/NadaPraFazer programming;dogs;brazil`)
+Build the image, this will already download all dependencies listed on requirements.txt
+> $ docker-compose build
 
+Run the container
+> $ docker-compose up
 
-Qualquer método para coletar os dados é válido. Caso não saiba por onde começar, procure por SeleniumHQ (Java), PhantomJS (Javascript) e Beautiful Soup (Python).
+To access the container bash, you must list all containers running and get your container id:
+> $ docker ps
+
+Then connect to this terminal:
+> $ docker exec -it 5324 ash
+
+## Usage
+You can extract data of Reddit passing the subrredits that you want to take the number of upvotes, comments link, the name of the subreddit, posts url and their titles.  
+
+To do that, navigate to project folder:
+> $ cd crawlers/reddit_crawler
+
+Then call *run.py* passing subreddits desired as parameters:
+> $ python run.py --subreddits cats worldnews
+
+It will also generate an *output.json* file with all data crawled.
+
+## Curiosities
+- The name of my crawler spider is [*Ungoliant*](http://lotr.wikia.com/wiki/Ungoliant), which is a reference to the fictional spider created by J.R.R Tolkien on his book, Silmarilion. 

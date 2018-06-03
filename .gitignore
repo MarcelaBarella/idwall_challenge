@@ -105,3 +105,5 @@ venv.bak/
 
 files-permission.sh
 .vscode
+
+output.json
