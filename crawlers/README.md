@@ -1,12 +1,13 @@
 # Crawler Challenge
-Simple crawler to get thrending threads of Reddit.
+Simple crawler to get thrending threads of Reddit and send then to a Telegram Bot.
 
 ## Techonologies 
 
 This solution is written in Python 3.6.5 using the following technologies:
-- [scrapy](https://scrapy.org/) - Framework to extract data from websites.
-- [argparse](https://docs.python.org/3/library/argparse.html?highlight=argparse) - Built-in library that makes receive arguments easier.
-- [halo](https://github.com/ManrajGrover/halo) - Beautiful spinners for terminal.
+- [beautiful soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Python libary to pulling data from HTML and XML.
+- [requests](http://docs.python-requests.org/en/master/) - Python libary to consuption of HTTP.
+- [telegram bot](https://core.telegram.org/bots) - Bot API HTTP based interface, used to set up and create bot for telegram.
+
 
 ## Running Solution
 The two ways that you can run this solution is locally or using docker, for both cases follow the given steps:
@@ -41,12 +42,16 @@ Then connect to this terminal:
 You can extract data of Reddit passing the subrredits that you want to take the number of upvotes, comments link, the name of the subreddit, posts url and their titles.  
 
 To do that, navigate to project folder:
-> $ cd crawlers/reddit_crawler
+> $ cd crawlers/api_telegram
 
 Then call *run.py* passing subreddits desired as parameters:
-> $ python run.py --subreddits cats worldnews
+> $ python run.py 
 
-It will also generate an *output.json* file with all data crawled.
+To create a TOKEN and create a bot to consume the application, you must to open telegram app, and
+then send a message to [botfather](https://telegram.me/botfather) asking for a token with the /token command.
 
-## Curiosities
-- The name of my crawler spider is [*Ungoliant*](http://lotr.wikia.com/wiki/Ungoliant), which is a reference to the fictional spider created by J.R.R Tolkien on his book, The Silmarillion. 
+After that you can search for @YourBotName on telegram, and the bot will be started and pass to you the commands to use it.
+
+
+
+

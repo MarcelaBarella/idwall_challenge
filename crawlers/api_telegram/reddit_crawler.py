@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-from reddit_thread import RedditThread
 
+from reddit_thread import RedditThread
 from utils import numerize, get_random_user_agent
 
 class RedditCrawler:

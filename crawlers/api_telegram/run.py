@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 def start(bot, update):
     """Call to start the bot"""
-    update.message.reply_text('Hi! Use /NadaPraFazer <subreddit>;<subreddit> to get your favorite reddit threding topics')
+    update.message.reply_text('Hi! Use /NadaPraFazer <subreddit>;<subreddit> to get your favorite reddit threading topics')
 
 def crawler_caller(bot, update, args):
     if not args:
@@ -41,8 +41,8 @@ def crawler_caller(bot, update, args):
     except Exception as err:
         print(err)
         update.message.reply_text(
-            "Whoops! Something went wrong. Reddit don't like me and " + \
-            "sometimes he blocks me D=. Please, wait a few (or a lot) " +\
+            "Whoops! Something went wrong. Sometimes Reddit blocks me or your " + \
+            "reddit search has given no results. Please, wait a few (or a lot) " +\
             "seconds and try again later")
 
 
