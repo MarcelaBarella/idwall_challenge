@@ -49,4 +49,4 @@ Then call *run.py* passing subreddits desired as parameters:
 It will also generate an *output.json* file with all data crawled.
 
 ## Curiosities
-- The name of my crawler spider is [*Ungoliant*](http://lotr.wikia.com/wiki/Ungoliant), which is a reference to the fictional spider created by J.R.R Tolkien on his book, Silmarilion. 
+- The name of my crawler spider is [*Ungoliant*](http://lotr.wikia.com/wiki/Ungoliant), which is a reference to the fictional spider created by J.R.R Tolkien on his book, The Silmarillion. 

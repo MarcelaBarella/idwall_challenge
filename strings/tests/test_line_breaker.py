@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
+import sys 
+from pathlib import Path
 
 import unittest
 
 from assertpy import assert_that
 
+import os,sys,inspect
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir) 
 from src.line_breaker import LineBreaker
 
 class TestLineBreaker(unittest.TestCase):
